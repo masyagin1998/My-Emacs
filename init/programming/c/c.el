@@ -14,7 +14,9 @@
 ;;; Code:
 
 ;; Identation.
-(setq c-basic-offset 4)
+(setq-default c-basic-offset 4
+	      tab-width 4
+	      indent-tabs-mode nil)
 
 ;; Smart syntax analyzer.
 (add-hook 'c++-mode-hook (lambda () (setq flycheck-gcc-language-standard "c++14")))

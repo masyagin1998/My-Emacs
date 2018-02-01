@@ -11,6 +11,8 @@
 
 ;;; Commentary:
 
+;;; Code:
+
 ;;; Base settings.
 
 ;; IDE by projectile.
@@ -48,14 +50,19 @@
 	       (window-height . 0.2)))
 
 ;;; Assembly settings.
-(load-file "~/.emacs.d/init/programming/assembly/assembly.el")
+(load-file "~/.emacs.d/init/programming/assembler/assembler.el")
 
 ;;; C\C++ settings.
 (load-file "~/.emacs.d/init/programming/c/c.el")
 
 ;;; Golang settings.
 (load-file "~/.emacs.d/init/programming/go/go.el")
-;;; Code:
+
+;;; Python settings.
+(load-file "~/.emacs.d/init/programming/python/python.el")
+
+;;; Web settings.
+(load-file "~/.emacs.d/init/programming/web/web.el")
 
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)

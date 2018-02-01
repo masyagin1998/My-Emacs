@@ -13,17 +13,15 @@
 
 ;;; Code:
 
-;; Fix bug with tabs.
-(defun my-asm-mode-hook ()
-  "Fix bug with tabulation in assembly mode."
-  (local-unset-key (vector asm-comment-char))
-  (setq tab-always-indent (default-value 'tab-always-indent))
-  (auto-complete-mode))
-
-(add-hook 'asm-mode-hook #'my-asm-mode-hook)
+;; Smart syntax analyzer.
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.xml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
 
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)
 ;; End:
 
-;;; assembly.el ends here
+;;; web.el ends here
