@@ -3,7 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "nginx-mode" "nginx-mode.el" (23144 27941 348308
+;;;### (autoloads nil "nginx-mode" "nginx-mode.el" (23352 51140 193345
 ;;;;;;  659000))
 ;;; Generated autoloads from nginx-mode.el
 
