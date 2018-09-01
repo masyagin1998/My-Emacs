@@ -15,30 +15,16 @@
 ;;; Code:
 
 ;; Theme.
-(defun use-fancy-splash-screens-p () ;; Show Emacs logo at startup.
-  (when (and (display-graphic-p)
-             (or (and (display-color-p)
-		      (image-type-available-p 'xpm))
-                 (image-type-available-p 'pbm)))
-    (let ((frame (fancy-splash-frame)))
-      (when frame
-	(let* ((img (create-image (fancy-splash-image-file)))
-	       (image-height (and img (cdr (image-size img nil frame))))
-	       (frame-height (1- (frame-height frame))))
-	  (> frame-height (+ image-height 17)))))))
-
-(require 'powerline) ;; Powerline.
-(if (display-graphic-p) (progn (require 'powerline) (powerline-default-theme)))
-
-(if (not (display-graphic-p)) ;; Choose different themes for GUI and for terminal.
+(if (not (display-graphic-p))
     (progn
       (load-file "~/.emacs.d/init/basic/arc-dark-terminal.el")
       (menu-bar-mode -1) (tool-bar-mode -1))
   (progn
     (load-file "~/.emacs.d/init/basic/arc-dark-gui.el")
+    (require 'powerline) (powerline-default-theme)
     (menu-bar-mode 1) (tool-bar-mode -1)))
 
-(add-hook 'prog-mode-hook 'nlinum-mode) ;; Show line numbers.
+(add-hook 'prog-mode-hook 'nlinum-mode)
 (setq nlinum-format "%3d ")
 
 ;; Package-manager.
@@ -46,7 +32,6 @@
       '(("melpa" . "https://melpa.org/packages/")
         ("gnu" . "http://elpa.gnu.org/packages/")
         ("melpa-stable" . "https://stable.melpa.org/packages/")))
-;; (package-refresh-contents)
 
 ;; Backups.
 (setq make-backup-files nil) ;; No backup files.

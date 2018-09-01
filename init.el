@@ -27,7 +27,21 @@
 ;; Programming settings.
 (load-file "~/.emacs.d/init/programming/programming.el")
 
-;; Local Variables:
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (yasnippet-classic-snippets web-mode use-package python-mode powerline nlinum nginx-mode neotree javap-mode go-scratch go-rename go-guru go-eldoc go-complete go-autocomplete flycheck-gometalinter flx-ido all-the-icons))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+ ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)
 ;; End:
 
