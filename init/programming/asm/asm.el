@@ -5,7 +5,7 @@
 ;; Author: masyagin1998
 ;; https://github.com/masyagin1998
 ;; Version: 1.1
-;; Package-Requires: ((emacs "25"))
+;; Package-Requires: ((emacs "26"))
 
 ;; This file is not part of Emacs.
 
@@ -28,4 +28,4 @@
 ;; byte-compile-warnings: (not free-vars)
 ;; End:
 
-;;; assembler.el ends here
+;;; asm.el ends here

@@ -5,16 +5,16 @@
 ;; Author: masyagin1998
 ;; https://github.com/masyagin1998
 ;; Version: 1.0
-;; Package-Requires: ((emacs "25"))
+;; Package-Requires: ((emacs "26"))
 
 ;; This file is not part of Emacs.
 
 ;;; Commentary:
 
 ;;; Code:
-(deftheme arc-dark-gui)
+(deftheme arc-dark-terminal)
 
-(let ((background "#373B49")
+(let ((background "#000000")
       (current-line "#505050")
       (selection "#b0b0b0")
       (foreground "#e0e0e0")
@@ -29,7 +29,7 @@
       (purple "#aa759f"))
 
   (custom-theme-set-faces
-   'arc-dark-gui
+   'arc-dark-terminal
 
    ;; Built-in stuff (Emacs 25)
    `(default ((t (:background ,background :foreground ,foreground))))
@@ -78,12 +78,12 @@
    `(rainbow-delimiters-depth-9-face ((t (:foreground ,foreground)))))
 
   (custom-theme-set-variables
-   'arc-dark-gui
+   'arc-dark-terminal
 
    `(ansi-color-names-vector
      [,background, red, green, yellow, blue, purple, blue, foreground])
    `(ansi-term-color-vector
      [unspecified, background, red, green, yellow, blue, purple, blue, foreground])))
 
-(provide-theme 'arc-dark-gui)
-;;; arc-dark-gui.el ends here
+(provide-theme 'arc-dark-terminal)
+;;; arc-dark-terminal.el ends here

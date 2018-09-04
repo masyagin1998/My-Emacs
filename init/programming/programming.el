@@ -5,7 +5,7 @@
 ;; Author: masyagin1998
 ;; https://github.com/masyagin1998
 ;; Version: 1.1
-;; Package-Requires: ((emacs "25"))
+;; Package-Requires: ((emacs "26"))
 
 ;; This file is not part of Emacs.
 
@@ -14,33 +14,49 @@
 
 ;;; Code:
 
-;;; Base settings.
-(require 'auto-complete-config) ;; Autocomplete.
-(require 'popup)
-(ac-config-default)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-20170124.1845/dict")
+;; ##############################################
+;; ############## Major settings. ###############
+;; ##############################################
 
-(add-hook 'after-init-hook #'global-flycheck-mode) ;; Syntax analyzer.
-(add-to-list 'display-buffer-alist ;; Run flycheck as status bar.
-             `(,(rx bos "*Flycheck errors*" eos)
-	       (display-buffer-reuse-window
-		display-buffer-in-side-window)
-	       (side . bottom)
-	       (reusable-frames . visible)
-	       (window-height . 0.1)))
+;; Auto-completion.
+(use-package popup
+  :ensure t)
+(use-package auto-complete-config
+  :ensure auto-complete
+  :init
+  (ac-config-default)
+  (add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-20170125.245/dict"))
 
-(require 'yasnippet) ;; Snippets.
-(yas-global-mode t)
-(yas-load-directory "~/.emacs.d/elpa/yasnippet-classic-snippets-1.0.2/snippets")
+;; Snippets.
+(use-package yasnippet-snippets
+  :ensure t)
+(use-package yasnippet
+  :ensure t
+  :init
+  (yas-global-mode t)
+  (yasnippet-snippets-initialize)
+  (yas-load-directory yasnippet-snippets-dir))
+;; Online code analyzer.
+(use-package flycheck
+  :ensure t
+  :init
+  (global-flycheck-mode)
+  (add-to-list
+   'display-buffer-alist
+   `(,(rx bos "*Flycheck errors*" eos)
+     (display-buffer-reuse-window
+      display-buffer-in-side-window)
+     (side . bottom)
+     (reusable-frames . visible)
+     (window-height . 0.2))))
 
-;;; Golang.
-(load-file "~/.emacs.d/init/programming/golang.el")
+;; ##############################################
+;; ########## Programming languages. ############
+;; ##############################################
 
-;;; С\С++.
-(load-file "~/.emacs.d/init/programming/cpp.el")
-
-;;; Assembler.
-(load-file "~/.emacs.d/init/programming/assembler.el")
+(load-file "~/.emacs.d/init/programming/go/go.el")
+(load-file "~/.emacs.d/init/programming/cpp/cpp.el")
+(load-file "~/.emacs.d/init/programming/web/web.el")
 
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)
