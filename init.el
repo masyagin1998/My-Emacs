@@ -14,10 +14,6 @@
 
 ;;; Code:
 
-;; ##############################################
-;; ####### Package management settings. #########
-;; ##############################################
-
 ;; Repositories.
 (setq package-archives
       '(("melpa" . "https://melpa.org/packages/")
@@ -34,9 +30,30 @@
   (package-install 'use-package))
 (require 'use-package)
 
-;; ##############################################
-;; ############# Backups settings. ##############
-;; ##############################################
+;; Emacs keybindings with Russian keymap.
+(defun cfg:reverse-input-method (input-method)
+  "Build the reverse mapping of single letters from INPUT-METHOD."
+  (interactive
+   (list (read-input-method-name "Use input method (default current): ")))
+  (if (and input-method (symbolp input-method))
+      (setq input-method (symbol-name input-method)))
+  (let ((current current-input-method)
+        (modifiers '(nil (control) (meta) (control meta))))
+    (when input-method
+      (activate-input-method input-method))
+    (when (and current-input-method quail-keyboard-layout)
+      (dolist (map (cdr (quail-map)))
+        (let* ((to (car map))
+               (from (quail-get-translation
+                      (cadr map) (char-to-string to) 1)))
+          (when (and (characterp from) (characterp to))
+            (dolist (mod modifiers)
+              (define-key local-function-key-map
+                (vector (append mod (list from)))
+                (vector (append mod (list to)))))))))
+    (when input-method
+      (activate-input-method current))))
+(cfg:reverse-input-method 'russian-computer)
 
 ;; No backup files.
 (setq make-backup-files nil)
@@ -44,10 +61,6 @@
 (setq auto-save-list-file-name nil)
 ;; No autosaves.
 (setq auto-save-default nil)
-
-;; ##############################################
-;; ########## Text-writing settings. ############
-;; ##############################################
 
 ;; Delete selection
 (delete-selection-mode t)
@@ -63,32 +76,15 @@
   (add-hook 'prog-mode-hook 'hs-minor-mode)
   (global-set-key (kbd "<f9>") 'hs-toggle-hiding))
 
-;; ##############################################
-;; ############## Themes settings. ##############
-;; ##############################################
+;; Some string functions.
+(use-package s
+  :ensure t)
 
+;; Theme settings.
 (load-file "~/.emacs.d/init/theme/theme.el")
+;; Programming languages settings.
+(load-file "~/.emacs.d/init/programming/programming.el")
 
-;; ##############################################
-;; ########### Programming settings. ############
-;; ##############################################
-
- (load-file "~/.emacs.d/init/programming/programming.el")
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (yasnippet-snippets yasnippet use-package powerline neotree flycheck-golangci-lint flx-ido auto-complete all-the-icons))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
  ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)
 ;; End:

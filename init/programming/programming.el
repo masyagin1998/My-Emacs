@@ -14,9 +14,10 @@
 
 ;;; Code:
 
-;; ##############################################
-;; ############## Major settings. ###############
-;; ##############################################
+;; Identation.
+(setq-default c-basic-offset 4
+	          tab-width 4
+	          indent-tabs-mode nil)
 
 ;; Auto-completion.
 (use-package popup
@@ -50,13 +51,10 @@
      (reusable-frames . visible)
      (window-height . 0.2))))
 
-;; ##############################################
-;; ########## Programming languages. ############
-;; ##############################################
-
+;; Go 1.11 settings.
 (load-file "~/.emacs.d/init/programming/go/go.el")
-(load-file "~/.emacs.d/init/programming/cpp/cpp.el")
-(load-file "~/.emacs.d/init/programming/web/web.el")
+;; C\C++ settings.
+(load-file "~/.emacs.d/init/programming/c\\c++/cpp.el")
 
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)

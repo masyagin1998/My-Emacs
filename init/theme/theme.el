@@ -14,10 +14,6 @@
 
 ;;; Code:
 
-;; ##############################################
-;; ############# Themes switching. ##############
-;; ##############################################
-
 ;; If Emacs is in terminal, use "arc-dark-terminal" theme
 ;; else use "arc-dark-gui" theme.
 (if (not (display-graphic-p))
@@ -50,10 +46,6 @@
 ;; Cursor not blinking.
 (blink-cursor-mode -1)
 
-;; ##############################################
-;; ########### File-roller settings. ############
-;; ##############################################
-
 ;; Simple file-roller in bottom of Emacs.
 (use-package flx-ido
   :ensure t
@@ -76,7 +68,9 @@
   (setq-default neo-show-hidden-files t)
   (setq neo-smart-open t)
   (setq neo-autorefresh t)
-  (global-set-key (kbd "<f8>") 'neotree-toggle))
+  (global-set-key (kbd "<f8>") 'neotree-toggle)
+  :if (not (file-exists-p "~/.local/share/fonts/all-the-icons.ttf"))
+  :init (all-the-icons-install-fonts))
 ;; List of opened files and buffers.
 (use-package bs
   :ensure t

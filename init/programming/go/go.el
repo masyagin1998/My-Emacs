@@ -34,11 +34,11 @@
 (use-package go-eldoc
   :ensure t)
 
-;; Golangci-lint settings.
+;; Golangci-lint linter settings.
 (use-package flycheck-golangci-lint
   :ensure t
-  :init
-  (setq flycheck-golangci-lint-config (concat (getenv "HOME") "/.emacs.d/init/programming/go/golangci.yml"))
+  ; :init
+  ; (setq flycheck-golangci-lint-config (concat (getenv "HOME") "/.emacs.d/init/programming/go/golangci.yml"))
   :hook
   (go-mode . flycheck-golangci-lint-setup)
   (go-mode . go-eldoc-setup))
