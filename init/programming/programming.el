@@ -51,10 +51,17 @@
      (reusable-frames . visible)
      (window-height . 0.2))))
 
+;; Jump to definition.
+(use-package dumb-jump
+  :ensure t
+  :init
+  (setq dumb-jump-force-searcher 'rg)
+  (setq dumb-jump-default-project "~/C/Norsi-Trans/example/example"))
+
 ;; Go 1.11 settings.
 (load-file "~/.emacs.d/init/programming/go/go.el")
 ;; C\C++ settings.
-(load-file "~/.emacs.d/init/programming/c\\c++/cpp.el")
+(load-file "~/.emacs.d/init/programming/cpp/cpp.el")
 
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)
