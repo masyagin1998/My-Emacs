@@ -16,7 +16,9 @@
 
 ;; C\C++-GCC linter settings.
 (add-hook 'c++-mode-hook (lambda () (setq flycheck-gcc-language-standard "c++17")))
-(add-hook 'c-mode-hook (lambda () (setq flycheck-gcc-language-standard "c11")))
+(add-hook 'c++-mode-hook (lambda () (setq flycheck-checker (quote c/c++-gcc))))
+(add-hook 'c-mode-hook (lambda () (setq flycheck-gcc-language-standard "c99")))
+(add-hook 'c-mode-hook (lambda () (setq flycheck-checker (quote c/c++-gcc))))
 (defun get-all-directories-recursively (parent-dir)
   "Get all DIRS from PARENT-DIR."
   (let ((all-dirs-and-files (directory-files-recursively parent-dir "" t))
