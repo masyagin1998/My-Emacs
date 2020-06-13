@@ -1,6 +1,6 @@
 ;;; package --- Summary
 
-;; Copyright (C) 2018, masyagin1998
+;; Copyright (C) 2020, masyagin1998
 
 ;; Author: masyagin1998
 ;; https://github.com/masyagin1998
@@ -19,6 +19,7 @@
 (add-hook 'c++-mode-hook (lambda () (setq flycheck-checker (quote c/c++-gcc))))
 (add-hook 'c-mode-hook (lambda () (setq flycheck-gcc-language-standard "c99")))
 (add-hook 'c-mode-hook (lambda () (setq flycheck-checker (quote c/c++-gcc))))
+
 (defun get-all-directories-recursively (parent-dir)
   "Get all DIRS from PARENT-DIR."
   (let ((all-dirs-and-files (directory-files-recursively parent-dir "" t))
@@ -28,6 +29,7 @@
           (setq all-dirs (append all-dirs (list (expand-file-name (car all-dirs-and-files))))))
       (setq all-dirs-and-files (cdr all-dirs-and-files)))
     (append all-dirs (list parent-dir))))
+
 (defun remove-directory-anti-pattern (all-dirs dir-anti-pattern)
   "Remove all directories matching DIR-ANTI-PATTERN from ALL-DIRS."
     (let (remaining-dirs '())
@@ -36,10 +38,21 @@
           (setq remaining-dirs (append remaining-dirs (list (expand-file-name(car all-dirs))))))
       (setq all-dirs (cdr all-dirs)))
     remaining-dirs))
+
 (add-hook 'c-mode-hook
-          (lambda () (setq flycheck-gcc-include-path (remove-directory-anti-pattern (get-all-directories-recursively "") ""))))
+          (lambda ()
+            (setq flycheck-gcc-include-path
+                  (remove-directory-anti-pattern
+                   (remove-directory-anti-pattern
+                    (append
+                     (get-all-directories-recursively "pattern1"))
+                    "antipatter1") "antipatter2"))))
+
 (add-hook 'c++-mode-hook
-          (lambda () (setq flycheck-gcc-include-path (remove-directory-anti-pattern (get-all-directories-recursively "") ""))))
+          (lambda ()
+            (setq flycheck-gcc-include-path
+				  ;; STUD.
+				  (get-all-directories-recursively "/home/mikhail/Downloads/mathmod/delaunay_triangulation/src"))))
 
 ;; C\C++-headers autocompletion.
 (setq ac-disable-faces nil)

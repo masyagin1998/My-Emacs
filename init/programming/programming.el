@@ -1,6 +1,6 @@
 ;;; package --- Summary
 
-;; Copyright (C) 2018, masyagin1998
+;; Copyright (C) 2020, masyagin1998
 
 ;; Author: masyagin1998
 ;; https://github.com/masyagin1998
@@ -15,9 +15,13 @@
 ;;; Code:
 
 ;; Identation.
-(setq-default c-basic-offset 4
-	          tab-width 4
-	          indent-tabs-mode nil)
+(setq-default indent-tabs-mode t)
+(setq-default tab-width 4)
+(defvaralias 'c-basic-offset 'tab-width)
+
+;(setq-default c-basic-offset 4
+;	          tab-width 4
+;;	          indent-tabs-mode nil)
 
 ;; Auto-completion.
 (use-package popup
@@ -55,10 +59,9 @@
 (use-package dumb-jump
   :ensure t
   :init
-  (setq dumb-jump-force-searcher 'rg)
-  (setq dumb-jump-default-project "~/C/Norsi-Trans/example/example"))
+  (setq dumb-jump-force-searcher 'ag))
 
-;; Go 1.11 settings.
+;; Go 1.13 settings.
 (load-file "~/.emacs.d/init/programming/go/go.el")
 ;; C\C++ settings.
 (load-file "~/.emacs.d/init/programming/cpp/cpp.el")

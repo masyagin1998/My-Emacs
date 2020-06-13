@@ -1,6 +1,6 @@
 ;;; package --- Summary
 
-;; Copyright (C) 2018, masyagin1998
+;; Copyright (C) 2020, masyagin1998
 
 ;; Author: masyagin1998
 ;; https://github.com/masyagin1998
@@ -92,7 +92,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (auto-complete-c-headers yasnippet-snippets use-package s powerline neotree go-guru go-eldoc go-autocomplete flycheck-golangci-lint flx-ido all-the-icons))))
+	(go-mode go-imports exec-path-from-shell auto-complete-c-headers yasnippet-snippets use-package s powerline neotree go-guru go-eldoc go-autocomplete flycheck-golangci-lint flx-ido all-the-icons))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

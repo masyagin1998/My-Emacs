@@ -1,6 +1,6 @@
 ;;; package --- Summary
 
-;; Copyright (C) 2017, masyagin1998
+;; Copyright (C) 2020, masyagin1998
 
 ;; Author: masyagin1998
 ;; https://github.com/masyagin1998
