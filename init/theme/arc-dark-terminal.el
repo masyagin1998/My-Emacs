@@ -1,13 +1,14 @@
 ;;; package --- Summary
 
-;; Copyright (C) 2020, masyagin1998
+;; Copyright (C) 2021, masyagin1998
 
 ;; Author: masyagin1998
 ;; https://github.com/masyagin1998
-;; Version: 1.0
+;; Version: 1.2
 ;; Package-Requires: ((emacs "26"))
 
 ;; This file is not part of Emacs.
+;; This is my Emacs terminal theme config.
 
 ;;; Commentary:
 
@@ -31,7 +32,7 @@
   (custom-theme-set-faces
    'arc-dark-terminal
 
-   ;; Built-in stuff (Emacs 25)
+   ;; Built-in stuff (Emacs 26)
    `(default ((t (:background ,background :foreground ,foreground))))
    `(fringe ((t (:background ,current-line))))
    `(minibuffer-prompt ((t (:foreground ,blue))))

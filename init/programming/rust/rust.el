@@ -10,23 +10,13 @@
 ;; This file is not part of Emacs.
 
 ;;; Commentary:
-;; This is configuration of C\C++.
+;; This is configuration of Rust.
 
 ;;; Code:
 
-;; C\C++ environment.
-(setenv "CPATH" "...:...:...")
-
-;; C\C++ mode.
-(use-package cc-mode
-  :ensure t
-  :init
-  (add-hook 'c-mode-hook 'lsp)
-  (add-hook 'c++-mode-hook 'lsp))
-
-;; Common.
-(lsp-workspace-folders-add "...")
-(lsp-workspace-folders-add "...")
+;; Rust mode.
+(use-package rust-mode
+  :ensure t)
 
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)

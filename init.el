@@ -1,16 +1,16 @@
 ;;; package --- Summary
 
-;; Copyright (C) 2020, masyagin1998
+;; Copyright (C) 2021, masyagin1998
 
 ;; Author: masyagin1998
 ;; https://github.com/masyagin1998
-;; Version: 1.1
+;; Version: 1.2
 ;; Package-Requires: ((emacs "26"))
 
 ;; This file is not part of Emacs.
 
 ;;; Commentary:
-;; This is my Emacs config for Golang, C\C++ and some other languages.
+;; This is my Emacs config for C\C++, Golang, Rust and some other languages.
 
 ;;; Code:
 
@@ -29,6 +29,18 @@
   (package-refresh-contents)
   (package-install 'use-package))
 (require 'use-package)
+
+;; Emacs environment.
+(defun set-exec-path-from-shell-PATH ()
+  "Import shell paths."
+  (let ((path-from-shell (replace-regexp-in-string
+                          "[ \t\n]*$"
+                          ""
+                          (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
+    (setenv "PATH" path-from-shell)
+    (setq eshell-path-env path-from-shell) ; for eshell users
+    (setq exec-path (split-string path-from-shell path-separator))))
+(when window-system (set-exec-path-from-shell-PATH))
 
 ;; Emacs keybindings with Russian keymap.
 (defun cfg:reverse-input-method (input-method)
@@ -92,7 +104,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-	(go-mode go-imports exec-path-from-shell auto-complete-c-headers yasnippet-snippets use-package s powerline neotree go-guru go-eldoc go-autocomplete flycheck-golangci-lint flx-ido all-the-icons))))
+    (rust-mode go-mode yasnippet-snippets flycheck company popup lsp-mode treemacs-persp treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs flx-ido powerline use-package dash-functional ag))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -1,10 +1,10 @@
 ;;; package --- Summary
 
-;; Copyright (C) 2020, masyagin1998
+;; Copyright (C) 2021, masyagin1998
 
 ;; Author: masyagin1998
 ;; https://github.com/masyagin1998
-;; Version: 1.1
+;; Version: 1.2
 ;; Package-Requires: ((emacs "26"))
 
 ;; This file is not part of Emacs.
@@ -14,34 +14,19 @@
 
 ;;; Code:
 
-;; Identation.
-(setq-default indent-tabs-mode t)
-(setq-default tab-width 4)
-(defvaralias 'c-basic-offset 'tab-width)
-
-;(setq-default c-basic-offset 4
-;	          tab-width 4
-;;	          indent-tabs-mode nil)
+;; Language Server Protocol Support for Emacs.
+(use-package lsp-mode
+  :ensure t)
 
 ;; Auto-completion.
 (use-package popup
   :ensure t)
-(use-package auto-complete-config
-  :ensure auto-complete
-  :init
-  (ac-config-default)
-  (add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-20170125.245/dict"))
-
-;; Snippets.
-(use-package yasnippet-snippets
-  :ensure t)
-(use-package yasnippet
+(use-package company
   :ensure t
   :init
-  (yas-global-mode t)
-  (yasnippet-snippets-initialize)
-  (yas-load-directory yasnippet-snippets-dir))
-;; Online code analyzer.
+  (add-hook 'after-init-hook 'global-company-mode))
+
+;; Code analysis.
 (use-package flycheck
   :ensure t
   :init
@@ -55,16 +40,24 @@
      (reusable-frames . visible)
      (window-height . 0.2))))
 
-;; Jump to definition.
-(use-package dumb-jump
+;; Snippets.
+(use-package yasnippet-snippets
+  :ensure t)
+(use-package yasnippet
   :ensure t
   :init
-  (setq dumb-jump-force-searcher 'ag))
+  (yas-global-mode t)
+  (yasnippet-snippets-initialize)
+  (yas-load-directory yasnippet-snippets-dir))
 
-;; Go 1.13 settings.
-(load-file "~/.emacs.d/init/programming/go/go.el")
 ;; C\C++ settings.
 (load-file "~/.emacs.d/init/programming/cpp/cpp.el")
+;; Golang settings.
+(load-file "~/.emacs.d/init/programming/go/go.el")
+;; Rust settings.
+(load-file "~/.emacs.d/init/programming/rust/rust.el")
+;; Bash settings.
+(load-file "~/.emacs.d/init/programming/bash/bash.el")
 
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)
