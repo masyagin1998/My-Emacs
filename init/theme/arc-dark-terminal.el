@@ -5,7 +5,7 @@
 ;; Author: masyagin1998
 ;; https://github.com/masyagin1998
 ;; Version: 1.2
-;; Package-Requires: ((emacs "26"))
+;; Package-Requires: ((emacs "27"))
 
 ;; This file is not part of Emacs.
 ;; This is my Emacs terminal theme config.

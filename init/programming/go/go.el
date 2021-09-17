@@ -5,7 +5,7 @@
 ;; Author: masyagin1998
 ;; https://github.com/masyagin1998
 ;; Version: 1.2
-;; Package-Requires: ((emacs "26"))
+;; Package-Requires: ((emacs "27"))
 
 ;; This file is not part of Emacs.
 
@@ -21,19 +21,18 @@
 (setenv "GOPATH" "/home/mikhail/Go")
 (setenv "GOBIN" "/home/mikhail/Go/bin")
 
+;; Before-save hooks to format buffer and add/delete imports.
+(defun lsp-go-install-save-hooks ()
+  "Run gofmt and goimports before saving Go file."
+  (add-hook 'before-save-hook 'lsp-format-buffer t t)
+  (add-hook 'before-save-hook 'lsp-organize-imports t t))
+
 ;; Go mode.
 (use-package go-mode
   :ensure t
   :init
-  (add-hook 'go-mode-hook 'lsp))
-
-;; Set up before-save hooks to format buffer and add/delete imports.
-;; Make sure you don't have other gofmt/goimports hooks enabled.
-(defun lsp-go-install-save-hooks ()
-  "Run gofmt and goimports before saving Go file."
-  (add-hook 'before-save-hook #'lsp-format-buffer t t)
-  (add-hook 'before-save-hook #'lsp-organize-imports t t))
-(add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
+  (add-hook 'go-mode-hook 'lsp)
+  (add-hook 'go-mode-hook 'lsp-go-install-save-hooks))
 
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)

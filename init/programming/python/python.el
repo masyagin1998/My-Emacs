@@ -10,14 +10,14 @@
 ;; This file is not part of Emacs.
 
 ;;; Commentary:
-;; This is configuration of BASH.
+;; This is configuration of Python.
 
 ;;; Code:
 
-;; Bash mode.
+
 
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)
 ;; End:
 
-;;; bash.el ends here
+;;; python.el ends here

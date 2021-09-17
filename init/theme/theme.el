@@ -5,7 +5,7 @@
 ;; Author: masyagin1998
 ;; https://github.com/masyagin1998
 ;; Version: 1.2
-;; Package-Requires: ((emacs "26"))
+;; Package-Requires: ((emacs "27"))
 
 ;; This file is not part of Emacs.
 
@@ -16,6 +16,7 @@
 
 ;; If Emacs is in terminal, use "arc-dark-terminal" theme
 ;; else use "arc-dark-gui" theme.
+(setq custom--inhibit-theme-enable nil)
 (if (not (display-graphic-p))
     (progn
       (load-file "~/.emacs.d/init/theme/arc-dark-terminal.el")

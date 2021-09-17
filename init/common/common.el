@@ -10,14 +10,20 @@
 ;; This file is not part of Emacs.
 
 ;;; Commentary:
-;; This is configuration of BASH.
+;; Common user-defined functions and utils.
 
 ;;; Code:
 
-;; Bash mode.
+(defun tabify-all ()
+  "Tabify all file."
+  (tabify (point-min) (point-max)))
+
+(defun untabify-all ()
+  "Untabify all file."
+  (untabify (point-min) (point-max)))
 
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)
 ;; End:
 
-;;; bash.el ends here
+;;; common.el ends here
