@@ -1,0 +1,126 @@
+Language: Cpp
+
+Standard: Auto
+
+UseTab: Always
+TabWidth: 8
+IndentWidth: 8
+
+SpacesInSquareBrackets: false
+SpacesInParentheses: false
+SpacesInContainerLiterals: false
+SpacesInAngles: false
+# SpacesBeforeTrailingComments:
+SpaceInEmptyParentheses: false
+SpaceBeforeRangeBasedForLoopColon: false
+SpaceBeforeParens: ControlStatements
+SpaceBeforeInheritanceColon: false
+SpaceBeforeCtorInitializerColon: false
+SpaceBeforeCpp11BracedList: true
+SpaceBeforeAssignmentOperators: true
+SpaceAfterTemplateKeyword: false
+SpaceAfterLogicalNot: false
+SpaceAfterCStyleCast: true
+
+SortUsingDeclarations: true
+SortIncludes: true
+
+ReflowComments: true
+
+# RawStringFormats:
+
+PointerAlignment: Right
+
+# PenaltyReturnTypeOnItsOwnLine:
+# PenaltyExcessCharacter:
+# PenaltyBreakTemplateDeclaration:
+# PenaltyBreakString:
+# PenaltyBreakFirstLessLess:
+# PenaltyBreakComment:
+# PenaltyBreakBeforeFirstCallParameter:
+# PenaltyBreakAssignment:
+# ObjCSpaceBeforeProtocolList:
+# ObjCSpaceAfterProperty:
+
+# ObjCBlockIndentWidth:
+
+# ObjCBinPackProtocolList:
+
+NamespaceIndentation: All
+
+MaxEmptyLinesToKeep: 2
+
+KeepEmptyLinesAtTheStartOfBlocks: false
+
+# JavaScriptWrapImports:
+# JavaScriptQuotes:
+
+# JavaImportGroups:
+
+IndentWrappedFunctionNames: true
+
+IndentPPDirectives: BeforeHash
+
+IndentCaseLabels: true
+
+IncludeBlocks: Preserve
+
+# TypenameMacros:
+# ForEachMacros:
+
+FixNamespaceComments: true
+
+ExperimentalAutoDetectBinPacking: false
+
+DisableFormat: false
+
+DerivePointerAlignment: false
+
+Cpp11BracedListStyle: true
+
+ContinuationIndentWidth: 8
+
+ConstructorInitializerIndentWidth: 8
+
+ConstructorInitializerAllOnOneLineOrOnePerLine: false
+
+CompactNamespaces: false
+
+# CommentPragmas:
+
+ColumnLimit: 80
+BreakStringLiterals: false
+
+# BreakInheritanceList:
+# BreakConstructorInitializers:
+BreakBeforeTernaryOperators: false
+BreakBeforeBraces: Linux
+BreakBeforeBinaryOperators: None
+# BreakAfterJavaFieldAnnotations:
+
+BinPackParameters: true
+BinPackArguments: true
+
+AlwaysBreakTemplateDeclarations: No
+AlwaysBreakBeforeMultilineStrings: true
+AlwaysBreakAfterReturnType: None
+# AlwaysBreakAfterDefinitionReturnType: None
+
+AllowShortLoopsOnASingleLine: false
+AllowShortLambdasOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortCaseLabelsOnASingleLine: false
+# AllowAllParametersOfDeclarationOnNextLine:
+# AllowAllConstructorInitializersOnNextLine:
+# AllowAllArgumentsOnNextLine
+
+AlignTrailingComments: true
+AlignOperands: true
+AlignEscapedNewlines: true
+AlignConsecutiveDeclarations: true
+AlignConsecutiveAssignments: true
+AlignConsecutiveMacros: true
+AlignAfterOpenBracket: DontAlign
+
+# AccessModifierOffset:

@@ -16,9 +16,9 @@
 
 ;; Repositories.
 (setq package-archives
-	  '(("melpa" . "https://melpa.org/packages/")
-		("gnu" . "http://elpa.gnu.org/packages/")
-		("melpa-stable" . "https://stable.melpa.org/packages/")))
+      '(("melpa" . "https://melpa.org/packages/")
+	("gnu" . "http://elpa.gnu.org/packages/")
+	("melpa-stable" . "https://stable.melpa.org/packages/")))
 ;; Initialization of "use-package".
 (require 'package)
 (package-initialize)
@@ -34,12 +34,12 @@
 (defun set-exec-path-from-shell-PATH ()
   "Import shell paths."
   (let ((path-from-shell (replace-regexp-in-string
-						  "[ \t\n]*$"
-						  ""
-						  (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
-	(setenv "PATH" path-from-shell)
-	(setq eshell-path-env path-from-shell) ; for eshell users
-	(setq exec-path (split-string path-from-shell path-separator))))
+			  "[ \t\n]*$"
+			  ""
+			  (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
+    (setenv "PATH" path-from-shell)
+    (setq eshell-path-env path-from-shell) ; for eshell users
+    (setq exec-path (split-string path-from-shell path-separator))))
 (when window-system (set-exec-path-from-shell-PATH))
 
 ;; Emacs keybindings with Russian keymap.
@@ -48,23 +48,23 @@
   (interactive
    (list (read-input-method-name "Use input method (default current): ")))
   (if (and input-method (symbolp input-method))
-	  (setq input-method (symbol-name input-method)))
+      (setq input-method (symbol-name input-method)))
   (let ((current current-input-method)
-		(modifiers '(nil (control) (meta) (control meta))))
-	(when input-method
-	  (activate-input-method input-method))
-	(when (and current-input-method quail-keyboard-layout)
-	  (dolist (map (cdr (quail-map)))
-		(let* ((to (car map))
-			   (from (quail-get-translation
-					  (cadr map) (char-to-string to) 1)))
-		  (when (and (characterp from) (characterp to))
-			(dolist (mod modifiers)
-			  (define-key local-function-key-map
-				(vector (append mod (list from)))
-				(vector (append mod (list to)))))))))
-	(when input-method
-	  (activate-input-method current))))
+	(modifiers '(nil (control) (meta) (control meta))))
+    (when input-method
+      (activate-input-method input-method))
+    (when (and current-input-method quail-keyboard-layout)
+      (dolist (map (cdr (quail-map)))
+	(let* ((to (car map))
+	       (from (quail-get-translation
+		      (cadr map) (char-to-string to) 1)))
+	  (when (and (characterp from) (characterp to))
+	    (dolist (mod modifiers)
+	      (define-key local-function-key-map
+		(vector (append mod (list from)))
+		(vector (append mod (list to)))))))))
+    (when input-method
+      (activate-input-method current))))
 (cfg:reverse-input-method 'russian-computer)
 
 ;; No backup files.
@@ -104,15 +104,18 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("90a6f96a4665a6a56e36dec873a15cbedf761c51ec08dd993d6604e32dd45940" "1fbd63256477789327fe429bd318fb90a8a42e5f2756dd1a94805fc810ae1b62" default))
+ '(ispell-dictionary nil)
  '(package-selected-packages
-   '(lsp-mode rust-mode go-mode yasnippet-snippets flycheck company popup treemacs-persp treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs flx-ido powerline use-package dash-functional ag)))
+   '(material-theme yaml-mode format-all arc-dark-theme json-mode lsp-mode rust-mode go-mode yasnippet-snippets flycheck company popup treemacs-persp treemacs-magit treemacs-icons-dired treemacs-projectile treemacs-evil treemacs flx-ido powerline use-package dash-functional ag)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
- ;; Local Variables:
+;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)
 ;; End:
 

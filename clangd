@@ -1,0 +1,57 @@
+CompileFlags:
+  Add: [
+  -xc,
+  -Wall, -Wextra,
+  -Wcast-align, -Wcast-qual,
+  -Wctor-dtor-privacy,
+  -Wduplicated-branches, -Wduplicated-cond
+  -Wextra-semi,
+  -Wfloat-equal,
+  -Wlogical-op,
+  -Wnon-virtual-dtor,
+  -Wold-style-cast,
+  -Woverloaded-virtual,
+  -Wredundant-decls,
+  -Wsign-promo,
+  ]
+  Remove: []
+Diagnostics:
+  ClangTidy:
+    Add: [
+    abseil-*,
+    boost-use-to-string,
+    bugprone-*,
+    clang-analyzer-core.*,
+    clang-analyzer-cplusplus.*,
+    clang-analyzer-nullability.*,
+    clang-analyzer-optin.*,
+    clang-analyzer-osx.*,
+    clang-analyzer-valist.*,
+    concurrency-mt-unsafe,
+    concurrency-thread-canceltype-asynchronous,
+    cppcoreguidelines-*,
+    darwin-*,
+    fuchsia-*,
+    google-*,
+    hicpp-*,
+    linuxkernel-must-use-errs,
+    llvm-*,
+    llvmlibc-*,
+    misc-*,
+    modernize-*,
+    mpi-*,
+    objc-*,
+    openmp-*,
+    performance-*,
+    portability-*,
+    readability-*
+    ]
+    Remove: [
+    bugprone-easily-swappable-parameters,
+    llvmlibc-restrict-system-libc-headers,
+    readability-function-cognitive-complexity,
+    bugprone-narrowing-conversions,
+    cppcoreguidelines-narrowing-conversions,
+    cppcoreguidelines-avoid-magic-numbers,
+    readability-magic-numbers,
+    ]

@@ -18,8 +18,8 @@
 (add-to-list 'exec-path "/usr/local/go/bin")
 (add-to-list 'exec-path "/home/mikhail/Golang/bin")
 (setenv "GOROOT" "/usr/local/go")
-(setenv "GOPATH" "/home/mikhail/Go")
-(setenv "GOBIN" "/home/mikhail/Go/bin")
+(setenv "GOPATH" "/home/mikhail/Golang")
+(setenv "GOBIN" "/home/mikhail/Golang/bin")
 
 ;; Before-save hooks to format buffer and add/delete imports.
 (defun lsp-go-install-save-hooks ()

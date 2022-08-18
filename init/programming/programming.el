@@ -40,7 +40,13 @@
      (reusable-frames . visible)
      (window-height . 0.2))))
 
-;; Snippets.
+;; Code auto-formatting.
+(use-package format-all
+  :ensure t
+  :init
+  (add-hook 'prog-mode-hook #'format-all-ensure-formatter))
+
+;; Code snippets.
 (use-package yasnippet-snippets
   :ensure t)
 (use-package yasnippet
@@ -50,14 +56,14 @@
   (yasnippet-snippets-initialize)
   (yas-load-directory yasnippet-snippets-dir))
 
+;; Lisp settings.
+(load-file "~/.emacs.d/init/programming/lisp/lisp.el")
 ;; C\C++ settings.
 (load-file "~/.emacs.d/init/programming/cpp/cpp.el")
 ;; Golang settings.
 (load-file "~/.emacs.d/init/programming/go/go.el")
-;; Rust settings.
-(load-file "~/.emacs.d/init/programming/rust/rust.el")
-;; Bash settings.
-(load-file "~/.emacs.d/init/programming/bash/bash.el")
+;; Configs settings.
+(load-file "~/.emacs.d/init/programming/configs/configs.el")
 
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)

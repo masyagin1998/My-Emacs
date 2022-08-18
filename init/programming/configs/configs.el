@@ -14,10 +14,20 @@
 
 ;;; Code:
 
+;; JSON.
+(use-package json-mode
+  :ensure t)
 
+;; YAML.
+(use-package yaml-mode
+  :ensure t)
+
+;; TOML.
+(use-package toml-mode
+  :ensure t)
 
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)
 ;; End:
 
-;;; javascript.el ends here
+;;; configs.el ends here
